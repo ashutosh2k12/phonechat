@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.hellcoderz.notifi"
+        id        = "com.hellcoderz.phonechatex"
         version   = "1.0.0">
 
-    <name>Notifi</name>
+    <name>Phone Chat</name>
 
     <description>
-        Notifi test app
+        Chatex test app
     </description>
 
     <author href="http://makefbcovers.com" email="admin@makefbcovers.com">
