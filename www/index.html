@@ -193,11 +193,16 @@
       	</div>
 		<!-- /uwrap -->
 	</body>
-	<script src="http://wpchatex.herokuapp.com/socket.io/socket.io.js"></script>
+	<script src="http://chatex.herokuapp.com/socket.io/socket.io.js"></script>
 <script>
-    var socket = io.connect('http://wpchatex.herokuapp.com');
-    socket.on( 'user_message', function( from, msg, handle,msgid ) {
-		alert('msg received-'+msg);
-	}); 
+    var socket = io.connect('http://chatex.herokuapp.com/');
+    socket.emit('nickname', 'prerna', function (set) {
+		if(!set)	alert('not set');
+		else alert('set')
+	});
+	socket.on('user message', function message (from, msg) {
+		//Notify user for new message arrival
+		alert('recv='+msg);
+      });
 </script>
 </html>
