@@ -28,7 +28,7 @@
 	<body id="afui" class="android light" onload="app.initialize();">
 		<!-- Light theme --->
 		<div class="uwrap" id="content">
-			<div class="upage panel" id="mainpage" data-header="af-header-1" data-footer="af-footer-0">
+			<div class="upage panel" id="mainpage" data-header="af-header-0" data-footer="af-footer-0">
 				<div class="upage-outer">
 				
 					<header class="container-group inner-element uib_w_9" data-uib="app_framework/header" data-ver="0" id="af-header-0">
@@ -70,139 +70,9 @@
 				<!-- /upage-outer -->
 
 			</div>
-			<div class="upage panel" id="uib_page_3" data-load="showPushes" data-header="af-header-1" data-footer="af-footer-0">
-				<div class="upage-outer">
-		<!---
-		<nav>
-			<ul class="list">
-				<li><a href="#uib_page_2" class="icon home">Home</a></li>
-				<li><a href="#uib_page_2" class="icon heart">Applications</a></li>
-				<li><a href="#uib_page_3" class="icon chat">Pushes</a></li>
-				<li><a href="#uib_page_1" class="icon user">Profile</a></li>
-			</ul>
-		</nav>
-		-->
-					<div id="uib_page_3sub" class="upage-content ">
-						
-						<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<h1 class="push-container">Pushes</h1>
-									<ul id="pushesfetch" class="list widget uib_w_19 d-margins" data-uib="app_framework/listview" data-ver="0">
-										
-									</ul>
-									<span class="uib_shim"></span>
-									<!---
-									<a class="button widget uib_w_20 d-margins" data-uib="app_framework/button" data-ver="0" href="#uib_page_2" data-transition="pop">Go back</a><span class="uib_shim"></span>
-								    --->
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-				</div>
-				<!-- /upage-outer -->
-			</div>
-			<div class="upage panel" id="uib_page_2" data-load="showApps" data-header="af-header-1" data-footer="af-footer-0">
-				<div class="upage-outer">
-					<div id="uib_page_2sub" class="upage-content ">
-						<!-- inner sub --->
-						
-						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<h1 class="push-container">Application</h1>
-									<ul id="pushes" class="list widget uib_w_13 d-margins" data-uib="app_framework/listview" data-ver="0">
-										
-									</ul><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-				</div>
-				<!-- /upage-outer -->
-			</div>
-			
-			<div class="upage panel" id="uib_page_4" data-header="af-header-1" data-footer="af-footer-0">
-				<div class="upage-outer">
-					<header class="container-group inner-element uib_w_17" data-uib="app_framework/header" data-ver="0" id="af-header-1">
-						<div class="grid urow uib_row_10 tabber-sub_tab row-height-10" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_12 sub_tab-1 col-0_4-12_4-4" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<a href="#uib_page_2" id='tab1' class="icon home" onclick="return decorateHeader(this);">Applications</a>
-									<span class="uib_shim"></span>
-								</div>
-							</div>
-							<div class="col uib_col_11 sub_tab-2 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<a href="#uib_page_3" id='tab3' class="icon chat" onclick="return decorateHeader(this);">Pushes</a>
-									<span class="uib_shim"></span>
-								</div>
-							</div>
-							<div class="col uib_col_10 sub_tab-3 col-0_4-12_4-8" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<a href="#uib_page_1" id='tab4' class="icon user" onclick="return decorateHeader(this);">Profile</a>
-									<span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</header>
-					<div id="uib_page_4sub" class="upage-content ">
-						<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-									<h1 class="push-container with-back">
-									<a href="#uib_page_3" class="button" id="backButton">Back</a>
-									Push Stat</h1>
-									<div id="push-stat">
-									
-									</div>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-					<footer class="inner-element uib_w_7" data-uib="app_framework/footer" data-ver="0" id="af-footer-1"></footer>
-				</div>
-				<!-- /upage-outer -->
-			</div>
-
-			<div class="upage panel" id="uib_page_1" data-load="showProfile" data-header="af-header-1" data-footer="af-footer-0">
-				<div class="upage-outer">
-
-					<div id="uib_page_1sub" class="upage-content ">
-						<div class="grid grid-pad urow uib_row_2 row-height-2" data-uib="layout/row" data-ver="0">
-							<div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
-								<div class="widget-container content-area vertical-col">
-
-									<div class="table-thing with-label widget uib_w_8 d-margins" data-uib="app_framework/input" data-ver="0">
-										<label class="narrow-control label-inline">Mobile</label>
-										<input class="wide-control" id="mobile" placeholder="10 digit mobile number" type="tel">
-									</div><a class="button widget uib_w_16 d-margins" id="two-screen" data-uib="app_framework/button" data-ver="0">Button</a><span class="uib_shim"></span>
-								</div>
-							</div>
-							<span class="uib_shim"></span>
-						</div>
-					</div>
-				</div>
-				<!-- /upage-outer -->
-			</div>
 			<!-- /upage -->
       	</div>
 		<!-- /uwrap -->
 	</body>
-	<script src="http://chatex.herokuapp.com/socket.io/socket.io.js"></script>
-<script>
-    var socket = io.connect('http://chatex.herokuapp.com/');
-    socket.emit('nickname', 'prerna', function (set) {
-		if(!set)	alert('not set');
-		else alert('set')
-	});
-	socket.on('user message', function message (from, msg) {
-		//Notify user for new message arrival
-		alert('recv='+msg);
-      });
-</script>
+	<script src="http://www.sumitjaiswal.com/blog/wp-content/plugins/chatex/admin/assets/js/rest.js"></script>
 </html>
