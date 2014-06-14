@@ -38,7 +38,7 @@ function register_event_handlers()
 							var result = $.parseJSON(result);
 							$.each(result.users, function(index,group) {
 								var online_div = '';
-								if($.inArray( group, online_user )){ online_div = '<div class="onliner"></div>'; }
+								if($.inArray( group, online_user )){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
 											<a href="#uib_page_3" data-transition="slide">'+online_div+group+'</a></li>';
 							});
