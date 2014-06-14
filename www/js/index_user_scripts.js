@@ -37,6 +37,7 @@ function register_event_handlers()
 							var _cont = '';
 							var result = $.parseJSON(result);
 							$.each(result.users, function(index,group) {
+								if(group == admin_email)	return true;
 								var online_div = '';
 								if($.inArray( group, online_user ) >= 0){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
