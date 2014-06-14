@@ -20,7 +20,12 @@ function register_event_handlers()
             //Get Login Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
-			
+			var online_user = [];
+			get_online_users(userdata,function(users){
+				$.each(users, function(index,user) {
+					online_user.push(user);
+				});
+			});
 			$.ui.blockUI(0.1);
 			$.ui.showMask("Verifying...");
 			//Authenticate
@@ -32,9 +37,10 @@ function register_event_handlers()
 							var _cont = '';
 							var result = $.parseJSON(result);
 							$.each(result.users, function(index,group) {
-								console.log(group);
-								_cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
-															<a href="#uib_page_3" data-transition="slide">'+group+'</a></li>';
+								var online_div = '';
+								if($.inArray( group, online_user )){ online_div = '<div class="onliner"></div>'; }
+								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
+											<a href="#uib_page_3" data-transition="slide">'+online_div+group+'</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
 						$.ui.loadContent("#uib_page_2",false,false,"slide");

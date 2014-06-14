@@ -16,6 +16,14 @@
 body {
   margin: 0px;
 }
+.onliner{
+width:10px;
+height:10px;
+display: inline-block;
+margin: 0 15px 0 1px;
+}
+.online{ background: green; }
+
 /*logo */
 .homerlogo{
 margin:0 auto;
