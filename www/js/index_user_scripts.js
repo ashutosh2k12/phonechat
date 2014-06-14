@@ -27,7 +27,22 @@ function register_event_handlers()
 			checkLogin(serverUrl,{ username: admin_email,password: admin_pin },function(result){
 				$.ui.hideMask();
 				$.ui.unblockUI();
-				if(result.success)	alert('logged in');
+				if(result.success){	
+					getUsers(serverUrl,{ username: admin_email },function(result){
+						console.log(result);
+						if(result.users.length>0){
+							var _cont = '';
+							for(var j=0;j<result.users.length;j++)
+							{
+								_cont += '<li class="widget uib_w_list list-apps" data-uib="app_framework/listitem" data-ver="0">\
+															<a href="#uib_page_3" data-transition="slide">'+result.users[j]+'</a></li>';
+							}
+							$('ul#users').empty().append(_cont);
+						}else{
+							$('ul#users').empty().append('<li>No Online Users</li>');
+						}
+					});
+				}
 				else	alert('not logged in');
 			});
 			
