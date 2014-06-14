@@ -29,7 +29,6 @@ function register_event_handlers()
 				$.ui.unblockUI();
 				if(result.success){	
 					getUsers(serverUrl,{ username: admin_email },function(result){
-						console.log(result);
 						if(result.users.length>0){
 							var _cont = '';
 							for(var j=0;j<result.users.length;j++)
@@ -41,6 +40,7 @@ function register_event_handlers()
 						}else{
 							$('ul#users').empty().append('<li>No Online Users</li>');
 						}
+						$.ui.loadContent("#uib_page_2",false,false,"slide");
 					});
 				}
 				else	alert('not logged in');
