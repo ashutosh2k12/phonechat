@@ -29,7 +29,6 @@ function register_event_handlers()
 				$.ui.unblockUI();
 				if(result.success){	
 					getUsers(serverUrl,{ username: admin_email },function(result){
-						if(result.users.length>0){
 							var _cont = '';
 							var result = $.parseJSON(result);
 							$.each(result.users, function(index,group) {
@@ -38,9 +37,6 @@ function register_event_handlers()
 															<a href="#uib_page_3" data-transition="slide">'+group+'</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
-						}else{
-							$('ul#users').empty().append('<li>No Online Users</li>');
-						}
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
 					});
 				}
