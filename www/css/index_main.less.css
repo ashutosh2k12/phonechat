@@ -464,3 +464,15 @@ h1.push-container{
 	text-align:center;
 	border-bottom: 1px #ccc solid;
 }
+
+/*chat interface */
+.txt-msg{
+position: fixed;
+bottom: 30px!important;
+width: 100%;
+}
+input.send-msg{
+display: inline-block;
+width: 95%!important;
+}
+#send-btn{ display: inline-block; }
