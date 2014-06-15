@@ -466,11 +466,7 @@ h1.push-container{
 }
 
 /*chat interface */
-.txt-msg{
-position: fixed;
-bottom: 30px!important;
-width: 100%;
-}
+
 input.send-msg{
 display: inline-block;
 width: 95%!important;
