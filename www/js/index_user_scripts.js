@@ -44,7 +44,7 @@ function register_event_handlers()
 								var online_div = '';
 								if($.inArray( group, online_user ) >= 0){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
-											<a href="#uib_page_3" onclick="setUserIndex("'+index+'","'+group+'")" data-transition="slide">'+online_div+group+' ('+index+')</a></li>';
+											<a href="#uib_page_3" onclick="setUserIndex(this)" data-transition="slide">'+online_div+group+'</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
@@ -76,21 +76,19 @@ window.scrollToBottom = function (token){
 }
 
 
-window.setUserIndex = function(UserIndex, UserName){
-	window.sessionStorage.setItem('current_userid', UserIndex);
+window.setUserIndex = function(obj){
+	var UserName = $(obj).parent().data('user');
 	window.sessionStorage.setItem('current_username', UserName);
-	alert('session set. U='+Username+' ind='+UserIndex);
+//	alert('session set. U='+Username);
 }
 
 //Before chat opens
 function showUserChat(div){
 	var user_name = window.sessionStorage.getItem('current_username');
-	var user_index = window.sessionStorage.getItem('current_userid');
-	alert('session set. U='+user_name+' ind='+user_index);
-	if(user_index === undefined || user_index === null || user_index === ''){
+	if(user_name === undefined || user_name === null || user_name === ''){
 		$.ui.loadContent("#uib_page_2",true,true,"slide");
 	}else{
-		$('#chat-msg').prepend('<input type="hidden" id="user_token" value="'+user_index+'" />');
+		$('#chat-msg').prepend('<input type="hidden" id="user_token" value="'+user_name+'" />');
 		$('h1.push-container').text(user_name);
 	}
 }
