@@ -42,12 +42,9 @@ function register_event_handlers()
 							$.each(result.users, function(index,group) {
 								if(group == admin_email)	return true;
 								var online_div = '';
-								var userArray = {};
-								userArray.UserIndex = index;
-								userArray.UserName = group;
 								if($.inArray( group, online_user ) >= 0){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
-											<a href="#uib_page_3" onclick="setUserIndex("'+userArray+'")" data-transition="slide">'+online_div+group+'</a></li>';
+											<a href="#uib_page_3" onclick="setUserIndex("'+index+'","'+group+'")" data-transition="slide">'+online_div+group+'</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
@@ -79,15 +76,17 @@ window.scrollToBottom = function (token){
 }
 
 
-function setUserIndex(User){
-	window.sessionStorage.setItem('current_userid', User.UserIndex);
-	window.sessionStorage.setItem('current_username', User.UserName);
+function setUserIndex(UserIndex, UserName){
+	window.sessionStorage.setItem('current_userid', UserIndex);
+	window.sessionStorage.setItem('current_username', UserName);
+	alert('session set. U='+Username+' ind='+UserIndex);
 }
 
 //Before chat opens
 function showUserChat(div){
 	var user_name = window.sessionStorage.getItem('current_username');
 	var user_index = window.sessionStorage.getItem('current_userid');
+	alert('session set. U='+user_name+' ind='+user_index);
 	if(user_index === undefined || user_index === null || user_index === ''){
 		$.ui.loadContent("#uib_page_2",true,true,"slide");
 	}else{
