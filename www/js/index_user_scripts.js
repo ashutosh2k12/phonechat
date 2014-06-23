@@ -42,9 +42,12 @@ function register_event_handlers()
 							$.each(result.users, function(index,group) {
 								if(group == admin_email)	return true;
 								var online_div = '';
+								var userArray = {};
+								userArray.UserIndex = index;
+								userArray.UserName = group;
 								if($.inArray( group, online_user ) >= 0){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
-											<a href="#uib_page_3" data-transition="slide">'+online_div+group+'</a></li>';
+											<a href="#uib_page_3" onclick="setUserIndex("'+userArray+'")" data-transition="slide">'+online_div+group+'</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
@@ -61,6 +64,7 @@ function register_event_handlers()
 			$("#msg-area").css('height',hei-100);
 			var inp = $("#send-msg",this).val();
 			if(inp == ''){ evt.preventDefault();	return false; }
+			var user_index = $('#user_token').val();
 			$("#send-msg",this).val('');
 			var msgid = Math.floor(Math.random()*10000000000); //Generate unique msgid
 			sendMsg('653a7dd85a44b0',inp,msgid);
@@ -73,7 +77,25 @@ window.scrollToBottom = function (token){
 		if(typeof $(token)[0] != 'undefined')
 			$(token).scrollTop($(token)[0].scrollHeight);
 }
-	
+
+
+function setUserIndex(User){
+	window.sessionStorage.setItem('current_userid', User.UserIndex);
+	window.sessionStorage.setItem('current_username', User.UserName);
+}
+
+//Before chat opens
+function showUserChat(div){
+	var user_name = window.sessionStorage.getItem('current_username');
+	var user_index = window.sessionStorage.getItem('current_userid');
+	if(user_index === undefined || user_index === null || user_index === ''){
+		$.ui.loadContent("#uib_page_2",true,true,"slide");
+	}else{
+		$('#chat-msg').prepend('<input type="hidden" id="user_token" value="'+user_index+'" />');
+		$('h1.push-container').text(user_name);
+	}
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
