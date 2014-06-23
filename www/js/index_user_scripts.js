@@ -67,7 +67,7 @@ function register_event_handlers()
 			var user_index = $('#user_token').val();
 			$("#send-msg",this).val('');
 			var msgid = Math.floor(Math.random()*10000000000); //Generate unique msgid
-			sendMsg('653a7dd85a44b0',inp,msgid);
+			sendMsg(user_index,inp,msgid);
 			$('<div class="msg-body clearfix"><div class="msg-recv fff">'+inp+'</div></div>').appendTo('#msg-area');
 			scrollToBottom('#msg-area');
 			evt.preventDefault();	
