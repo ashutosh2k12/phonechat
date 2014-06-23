@@ -44,7 +44,7 @@ function register_event_handlers()
 								var online_div = '';
 								if($.inArray( group, online_user ) >= 0){ online_div = '<div class="onliner online"></div>'; }
 								_cont += '<li class="widget uib_w_list list-apps" data-user="'+group+'" data-uib="app_framework/listitem" data-ver="0">\
-											<a href="#uib_page_3" onclick="setUserIndex("'+index+'","'+group+'")" data-transition="slide">'+online_div+group+'</a></li>';
+											<a href="#uib_page_3" onclick="setUserIndex("'+index+'","'+group+'")" data-transition="slide">'+online_div+group+' ('+index+')</a></li>';
 							});
 							$('ul#users').empty().append(_cont);
 						$.ui.loadContent("#uib_page_2",false,false,"slide");
@@ -76,7 +76,7 @@ window.scrollToBottom = function (token){
 }
 
 
-function setUserIndex(UserIndex, UserName){
+window.setUserIndex = function(UserIndex, UserName){
 	window.sessionStorage.setItem('current_userid', UserIndex);
 	window.sessionStorage.setItem('current_username', UserName);
 	alert('session set. U='+Username+' ind='+UserIndex);
