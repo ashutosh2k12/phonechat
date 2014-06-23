@@ -466,9 +466,63 @@ h1.push-container{
 }
 
 /*chat interface */
+.txt-msg{
+position: absolute!important;
+bottom: 0px;
+width: 100%;
+margin: 0 auto;
+display: block;
+}
+
+button#send-btn {
+width: 6%;
+position: absolute;
+right: 5px;
+bottom: 10px;
+}
 
 input.send-msg{
-display: inline-block;
-width: 95%!important;
+
 }
 #send-btn{ display: inline-block; }
+.clearfix:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+/* Hides from IE-mac \*/
+/** html .clearfix {height: 1%;}*/
+
+.clearfix {
+    display: block;
+}
+
+/* End hide from IE-mac */
+
+div.msg-body {
+position: relative;
+width: 100%;
+margin: 10px 0;
+}
+div.msg-sent {
+float: left;
+position: relative;
+display: inline-block;
+}
+div.msg-recv {
+float: right;
+position: relative;
+display: inline-block;
+}
+div#msg-area {
+margin-top: 5px;
+overflow: scroll;
+bottom: 10px;
+}

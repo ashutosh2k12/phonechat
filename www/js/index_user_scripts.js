@@ -15,7 +15,10 @@ var serverUrl = 'http://www.sumitjaiswal.com/blog/';
 	
 function register_event_handlers()
  {   	 
-         $(document).on("click", "#one-screen", function(evt)
+     		
+}
+//Login Form
+ $(document).on("click", "#one-screen", function(evt)
         {	
             //Get Login Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
@@ -51,8 +54,24 @@ function register_event_handlers()
 			});
 			
         });
-}
 
+//Chat form submit
+		$(document).on("submit","#chat-msg",function(evt){
+			var hei = $('.panel').height();
+			$("#msg-area").css('height',hei-100);
+			var inp = $("#send-msg",this).val();
+			if(inp == ''){ evt.preventDefault();	return false; }
+			$("#send-msg",this).val('');
+			$('<div class="msg-body clearfix"><div class="msg-recv fff">'+inp+'</div></div>').appendTo('#msg-area');
+			scrollToBottom('#msg-area');
+			evt.preventDefault();	
+		});
+		
+window.scrollToBottom = function (token){
+		if(typeof $(token)[0] != 'undefined')
+			$(token).scrollTop($(token)[0].scrollHeight);
+}
+	
 var app = {
     // Application Constructor
     initialize: function() {

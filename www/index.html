@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="app_framework/css/af.ui.min.css">
 		<link rel="stylesheet" type="text/css" href="app_framework/css/icons.min.css">
 		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+		<link rel="stylesheet" type="text/css" href="css/chat_theme.css" class="main-less">
 		<title>Your New Application</title>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
@@ -24,6 +25,9 @@
 		<script type="text/javascript" charset="utf-8" src="appframework/plugins/af.slidemenu.js"></script>
 		<script type="application/javascript" src="js/index_user_scripts.js"></script>
 		<script type="application/javascript" src="js/af_subpage.js"></script>
+		<script type="application/javascript" src="js/index_user_scripts.js"></script>
+		
+		
 		  <!--- Phonegap JS --->
 		  
 	</head>
@@ -72,7 +76,7 @@
 				<!-- /upage-outer -->
 
 			</div>
-			<div class="upage panel" id="uib_page_2" data-load="showApps" data-header="af-header-1" data-footer="af-footer-0">
+			<div class="upage panel" id="uib_page_2" data-header="af-header-0" data-footer="af-footer-0">
 				<div class="upage-outer">
 					<div id="uib_page_2sub" class="upage-content ">
 						<!-- inner sub --->
@@ -83,7 +87,8 @@
 									<h1 class="push-container">Users</h1>
 									<ul id="users" class="list widget uib_w_13 d-margins" data-uib="app_framework/listview" data-ver="0">
 										
-									</ul><span class="uib_shim"></span>
+									</ul>
+									<span class="uib_shim"></span>
 								</div>
 							</div>
 							<span class="uib_shim"></span>
@@ -93,7 +98,7 @@
 				<!-- /upage-outer -->
 			</div>
 			<!-- /upage -->
-			<div class="upage panel" id="uib_page_4" data-load="showApps" data-header="af-header-1" data-footer="af-footer-1">
+			<div class="upage panel" id="uib_page_4" data-header="af-header-0" data-footer="af-footer-0">
 				<div class="upage-outer">
 					<div id="uib_page_2sub" class="upage-content ">
 						<!-- inner sub --->
@@ -102,16 +107,21 @@
 							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
 								<div class="widget-container content-area vertical-col">
 									<h1 class="push-container">Chatex</h1>
-									<div class="txt-msg">
-										<input class="wide-control send-msg" id="send-msg" placeholder="Your messae" type="text">
-										<button id="send-btn">Send</button>
-									</div>
-									<span class="uib_shim"></span>
+									<div id="msg-area">
+										<div class="msg-body clearfix"><div class="msg-sent facebook">This is some Message sent</div></div>
+										<div class="msg-body clearfix"><div class="msg-recv fff">This is some Message recv</div></div>
+									</div>								
 								</div>
 							</div>
 							<span class="uib_shim"></span>
 						</div>
 					</div>
+				</div>
+				<div class="txt-msg">
+					<form id="chat-msg">
+						<input class="wide-control send-msg" id="send-msg" placeholder="Write message" autocomplete="off" type="text">
+						<button id="send-btn" type="submit">Send</button>
+					</form>
 				</div>
 				<footer class="inner-element uib_w_10" data-uib="app_framework/footer" data-ver="0" id="af-footer-1">
 						<h1 style="text-align:center;">Notify One</h1>
